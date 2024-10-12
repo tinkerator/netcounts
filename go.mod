@@ -1,3 +1,3 @@
-module zappem.net/pub/network/netcounts
+module zappem.net/pub/net/netcounts
 
 go 1.22.7

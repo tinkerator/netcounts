@@ -8,11 +8,11 @@ import (
 	"strings"
 	"time"
 
-	"zappem.net/pub/network/netcounts"
+	"zappem.net/pub/net/netcounts"
 )
 
 var (
-	debug    = flag.Bool("debug", true, "log extra details")
+	debug    = flag.Bool("debug", false, "log extra details")
 	poll     = flag.Duration("poll", 5*time.Second, "polling interval")
 	ignore   = flag.String("ignore", "lo", "comma separated list of devices to ignore")
 	ifconfig = flag.String("ifconfig", netcounts.IfconfigBinary, "override location of ifconfig binary")
