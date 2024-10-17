@@ -2,9 +2,10 @@
 
 ## Overview
 
-The `netcounts` package provides a Go API for monitoring network
-traffic. It works by parsing the command output of the `ifconfig`
-program.
+The `netcounts` package provides a [Go
+API](https://pkg.go.dev/zappem.net/pub/net/netcounts) for monitoring
+network traffic. It works by parsing the command output of the
+`ifconfig` program.
 
 ```
 $ git clone https://github.com/tinkerator/netcounts.git
