@@ -1,4 +1,11 @@
-// Program watch pays attention to the rate of network activity.
+// Program watch pays attention to the rate of network activity. By
+// default, it ignores the "lo" device, but use --ignore="" to reveal
+// those stats.
+//
+// This is a simple cli to demonstrate using the
+// [zappem.net/pub/net/netcounts] package.
+//
+// [zappem.net/pub/net/netcounts]: https://zappem.net/pub/net/netcounts/
 package main
 
 import (
@@ -12,18 +19,13 @@ import (
 )
 
 var (
-	debug    = flag.Bool("debug", false, "log extra details")
-	poll     = flag.Duration("poll", 5*time.Second, "polling interval")
-	ignore   = flag.String("ignore", "lo", "comma separated list of devices to ignore")
-	ifconfig = flag.String("ifconfig", netcounts.IfconfigBinary, "override location of ifconfig binary")
+	debug  = flag.Bool("debug", false, "log extra details")
+	poll   = flag.Duration("poll", 5*time.Second, "polling interval")
+	ignore = flag.String("ignore", "lo", "comma separated list of devices to ignore")
 )
 
 func main() {
 	flag.Parse()
-
-	if netcounts.IfconfigBinary != *ifconfig {
-		netcounts.IfconfigBinary = *ifconfig
-	}
 
 	skip := make(map[string]bool)
 	for _, d := range strings.Split(*ignore, ",") {

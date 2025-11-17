@@ -4,8 +4,9 @@
 
 The `netcounts` package provides a [Go
 API](https://pkg.go.dev/zappem.net/pub/net/netcounts) for monitoring
-network traffic. It works by parsing the command output of the
-`ifconfig` program.
+network traffic. It works by parsing the /proc/net files and also uses
+the net package to determine the IPv4 and IPv6 addresses of the
+detected network interfaces.
 
 ```
 $ git clone https://github.com/tinkerator/netcounts.git
